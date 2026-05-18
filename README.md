@@ -12,6 +12,6 @@ node index.js
 
 # rotas
 
-/ - main page
-/usuarios - usuários existentes no "./dados.json"
-/usuarios/:id - puxa um usuário específico
+- / - main page
+- /usuarios - usuários existentes no "./dados.json"
+- /usuarios/:id - puxa um usuário específico
