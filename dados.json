@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "nome": "Augusto Oliveira",
+    "cargo": "Analista Jr"
+  },
+  {
+    "id": 2,
+    "nome": "Fernanda Silva",
+    "cargo": "Analista Sr"
+  },
+  {
+    "id": 3,
+    "nome": "Pedro Gomes",
+    "cargo": "Gerente"
+  },
+  {
+    "id": 4,
+    "nome": "Camila Santana",
+    "cargo": "Coordenadora"
+  }
+]
