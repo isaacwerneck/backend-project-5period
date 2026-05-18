@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/isaacwerneck/backend-project-5period/issues"
   },
-  "homepage": "https://github.com/isaacwerneck/backend-project-5period#readme"
+  "homepage": "https://github.com/isaacwerneck/backend-project-5period#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "fs": "^0.0.1-security"
+  }
 }
