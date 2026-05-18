@@ -23,6 +23,7 @@ app.get('/usuarios', (req, res) => {
         const listaOriginal = JSON.parse(data);
         res.status(200).json(listaOriginal);
     });
+
 });
 
 
@@ -32,7 +33,7 @@ app.get('/usuarios/:id', (req, res) => {
     // 1. Capturamos o ID enviado na URL
     // Importante: Parâmetros de URL chegam como Texto (String). 
     // Como nosso JSON usa números, convertemos com parseInt.
-    const idProcurado = parseInt(req.params.id);
+    const idProcurado = parseInt(req.params.id); // sempre converter para não dar erro!
 
     // 2. Lemos o arquivo de dados
     fs.readFile(CAMINHO_ARQUIVO, 'utf8', (err, data) => {
@@ -61,7 +62,6 @@ app.get('/usuarios/:id', (req, res) => {
 app.get('/', (req, res) => {
     res.send("Bem-vindo à aplicação de Usuários! Para ver a lista, acesse /usuarios");
 });
-
 
 
 app.listen(3000, () => console.log("Servidor ativo na porta 3000"));
