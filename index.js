@@ -25,6 +25,9 @@ app.get('/usuarios', (req, res) => {
     });
 });
 
+app.get('/', (req, res) => {
+    res.send('Bem vindo! Para acessar os dados de usuarios, vá para a rota /usuarios')
+})
 
 
 app.listen(3000, () => console.log("Servidor ativo na porta 3000"));
