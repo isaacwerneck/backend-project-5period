@@ -25,9 +25,44 @@ app.get('/usuarios', (req, res) => {
     });
 });
 
+
+// Rota para buscar um usuário específico pelo ID
+// O ":id" na URL é um parâmetro dinâmico (variável)
+app.get('/usuarios/:id', (req, res) => {
+    // 1. Capturamos o ID enviado na URL
+    // Importante: Parâmetros de URL chegam como Texto (String). 
+    // Como nosso JSON usa números, convertemos com parseInt.
+    const idProcurado = parseInt(req.params.id);
+
+    // 2. Lemos o arquivo de dados
+    fs.readFile(CAMINHO_ARQUIVO, 'utf8', (err, data) => {
+        if (err) {
+            return res.status(500).json({ mensagem: "Erro ao ler a base de dados." });
+        }
+
+        // 3. Convertemos o texto do JSON para um Array de objetos JavaScript
+        const usuarios = JSON.parse(data);
+
+        // 4. Utilizamos o método .find() para localizar o objeto com o ID correspondente
+        const usuarioEncontrado = usuarios.find(u => u.id === idProcurado);
+
+        // 5. Verificação de existência (Tratamento de Erro)
+        if (usuarioEncontrado) {
+            // Se encontrar, retornamos o objeto e o status 200 (OK)
+            res.status(200).json(usuarioEncontrado);
+        } else {
+            // Se não encontrar, retornamos status 404 (Not Found)
+            res.status(404).json({ mensagem: "Usuário não localizado em nossa base." });
+        }
+    });
+});
+
+// Rota Raiz: Serve para verificar se o servidor está online e dar orientações
 app.get('/', (req, res) => {
-    res.send('Bem vindo! Para acessar os dados de usuarios, vá para a rota /usuarios')
-})
+    res.send("Bem-vindo à aplicação de Usuários! Para ver a lista, acesse /usuarios");
+});
+
 
 
 app.listen(3000, () => console.log("Servidor ativo na porta 3000"));
+
