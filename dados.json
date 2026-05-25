@@ -18,5 +18,10 @@
     "id": 4,
     "nome": "Camila Santana",
     "cargo": "Coordenadora"
+  },
+  {
+    "nome": "Lucas Nunes",
+    "cargo": "Estagiario",
+    "id": 5
   }
 ]
